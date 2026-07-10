@@ -1,0 +1,23 @@
+# Gradle directory
+.gradle/
+build/
+
+# Maven directory (just in case)
+target/
+
+# IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Log files
+*.log
+
+# Docker data directories (if any local database mounts create folders)
+mysql-data/
+
+# OS files
+.DS_Store
+Thumbs.db
