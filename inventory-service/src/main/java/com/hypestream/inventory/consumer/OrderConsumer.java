@@ -1,7 +1,9 @@
 package com.hypestream.inventory.consumer;
 
 import com.hypestream.inventory.event.OrderPlacedEvent;
+import com.hypestream.inventory.event.InventoryReservedEvent;
 import com.hypestream.inventory.repository.ProductRepository;
+import com.hypestream.inventory.producer.InventoryProducer;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Service;
 public class OrderConsumer {
 
     private final ProductRepository productRepository;
+    private final InventoryProducer inventoryProducer;
 
     /**
      * Kafka Listener that consumes events from the "order-placed" topic.
@@ -31,13 +34,33 @@ public class OrderConsumer {
                 // Step 3: Deduct the stock
                 product.setStock(product.getStock() - event.getQuantity());
                 productRepository.save(product);
+
+                // Publish success event back to Kafka
+                inventoryProducer.sendInventoryStatus(InventoryReservedEvent.builder()
+                        .orderId(event.getOrderId())
+                        .status("RESERVED")
+                        .build());
                 
                 log.info("Successfully deducted {} pairs of '{}' (ID: {}). Remaining stock: {}", 
                         event.getQuantity(), product.getName(), product.getId(), product.getStock());
             } else {
+                // Publish failure event back to Kafka due to out of stock
+                inventoryProducer.sendInventoryStatus(InventoryReservedEvent.builder()
+                        .orderId(event.getOrderId())
+                        .status("FAILED")
+                        .build());
+
                 log.warn("Insufficient stock for product '{}' (ID: {}). Available: {}, Requested: {}", 
                         product.getName(), product.getId(), product.getStock(), event.getQuantity());
             }
-        }, () -> log.error("Product with ID {} not found in inventory catalog!", event.getProductId()));
+        }, () -> {
+            // Publish failure event back to Kafka because product doesn't exist
+            inventoryProducer.sendInventoryStatus(InventoryReservedEvent.builder()
+                    .orderId(event.getOrderId())
+                    .status("FAILED")
+                    .build());
+
+            log.error("Product with ID {} not found in inventory catalog!", event.getProductId());
+        });
     }
 }
