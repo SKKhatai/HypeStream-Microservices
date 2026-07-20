@@ -19,6 +19,8 @@ public class StockStatusConsumer {
     /**
      * Kafka Listener that consumes events from the "order-stock-status" topic.
      * When inventory-service replies with the stock status, this listener triggers.
+     * Retrieves the order from the database and updates its status to CONFIRMED 
+     * or CANCELLED based on the stock reservation result from Kafka.
      */
     @KafkaListener(topics = "order-stock-status", groupId = "order-group")
     public void consumeStockStatusEvent(InventoryReservedEvent event) {

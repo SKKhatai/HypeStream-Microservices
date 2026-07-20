@@ -50,7 +50,8 @@ public class OrderController {
                 .build();
         Order savedOrder = orderRepository.save(order);
 
-        // Publish OrderPlacedEvent to Kafka topic
+        // Calculates the order total, saves the order as PENDING in MySQL, 
+        // and publishes the OrderPlacedEvent to Kafka for inventory checking.
         orderProducer.sendOrderPlacedEvent(OrderPlacedEvent.builder()
                 .orderId(savedOrder.getId())
                 .productId(savedOrder.getProductId())

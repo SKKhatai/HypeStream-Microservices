@@ -17,5 +17,5 @@ import java.io.Serializable;
 @Builder
 public class InventoryReservedEvent implements Serializable {
     private Long orderId;
-    private String status; // Can be "RESERVED" or "FAILED"
+    private String status; 
 }
