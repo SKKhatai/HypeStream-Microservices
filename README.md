@@ -105,7 +105,7 @@ Client (Mobile / Web)
 | **API Gateway** | Spring Cloud Gateway | Centralized routing & security |
 | **Message Broker** | Apache Kafka | Async event-driven communication |
 | **Database** | MySQL 8.0 | Persistent data storage (per service) |
-| **Cache** | Redis | High-speed catalog caching *(Phase 6)* |
+| **Cache** | Redis | High-speed catalog caching  |
 | **Containerization** | Docker Compose | Local infrastructure orchestration |
 | **Build Tool** | Gradle Multi-Project | Unified monorepo build system |
 | **Utilities** | Lombok | Boilerplate-free Java code |
