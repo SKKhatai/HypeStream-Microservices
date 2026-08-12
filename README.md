@@ -336,7 +336,7 @@ eureka:
 
 ## 👤 Author
 
-**Sufiyan Khatai**
+**Sourav Kumar Khatai**
 - GitHub: [@SKKhatai](https://github.com/SKKhatai)
 
 ---
