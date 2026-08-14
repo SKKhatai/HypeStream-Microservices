@@ -314,8 +314,8 @@ eureka:
 | ✅ Phase 2 | Inventory Service (CRUD + Seeder) | **Completed** |
 | ✅ Phase 3 | Order Service + Kafka Producer | **Completed** |
 | ✅ Phase 4 | SAGA Pattern (Kafka Consumer Loop) | **Completed** |
-| 🔧 Phase 5 | Redis Caching (Cache-Aside Pattern) | **In Progress** |
-| 🔧 Phase 6 | Resilience4j Circuit Breaker | **Planned** |
+| ✅ Phase 5 | Redis Caching (Cache-Aside Pattern) | **Completed** |
+| ✅ Phase 6 | Resilience4j Circuit Breaker | **Completed** |
 | 🔧 Phase 7 | Optimistic Locking (Race Condition Fix) | **Planned** |
 | 🔧 Phase 8 | JWT Authentication at Gateway | **Planned** |
 | 🔧 Phase 9 | AWS Deployment (RDS + ECS + MSK) | **Planned** |
