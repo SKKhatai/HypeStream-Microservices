@@ -284,9 +284,6 @@ spring.json.use.type.headers: "false"
 spring.json.value.default.type: "com.hypestream.inventory.event.OrderPlacedEvent"
 ```
 
-### 2. Eureka `UnknownHostException`
-**Problem:** Eureka registered services using the Windows machine hostname instead of the actual network IP, causing routing failures.
-
 **Solution:** Added to all service `application.yml` files:
 ```yaml
 eureka:
