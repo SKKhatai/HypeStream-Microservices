@@ -198,9 +198,6 @@ Open your browser and visit:
 ---
 
 ## 📡 API Reference
-
-All requests go through the **API Gateway on port `8080`**.
-
 #### Get All Products (Shoe Catalog)
 ```http
 GET http://localhost:8080/api/v1/products
