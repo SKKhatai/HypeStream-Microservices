@@ -150,7 +150,7 @@ hypestream/
 Make sure the following are installed on your machine:
 - **Java 21** (e.g. Microsoft OpenJDK 21)
 - **Docker Desktop** (running)
-- **IntelliJ IDEA** (recommended)
+- **IntelliJ IDEA and VS Code** (recommended)
 
 ### Step 1: Clone the Repository
 
