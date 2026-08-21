@@ -99,7 +99,7 @@ Client (Mobile / Web)
 
 | Category | Technology | Purpose |
 | :--- | :--- | :--- |
-| **Language** | Java 21 | Core application language |
+| **Language** | Java 21 |
 | **Framework** | Spring Boot 3.x | Microservice development |
 | **Service Discovery** | Netflix Eureka | Dynamic IP-based service routing |
 | **API Gateway** | Spring Cloud Gateway | Centralized routing & security |
