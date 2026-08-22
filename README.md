@@ -39,13 +39,13 @@ Client (Mobile / Web)
          │
          ▼
 ┌─────────────────────┐
-│     API Gateway     │  ← Port 8080 — Single entry point for all requests
+│     API Gateway     │  ← Single entry point for all requests
 │  (Spring Cloud GW)  │    Handles routing, load balancing, and (future) JWT security
 └─────────────────────┘
          │
          ▼
 ┌─────────────────────┐
-│   Eureka Server     │  ← Port 8761 — Dynamic service registry / phonebook
+│   Eureka Server     │  ← Dynamic service registry / phonebook
 │  (Service Registry) │    Services discover each other by name, not hardcoded IPs
 └─────────────────────┘
          │
