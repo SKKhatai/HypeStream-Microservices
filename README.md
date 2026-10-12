@@ -89,8 +89,8 @@ Client (Mobile / Web)
               │
               ▼
 4. Order Service → Updates order status
-     RESERVED → [CONFIRMED] ✅
-     FAILED   → [CANCELLED] ❌
+     RESERVED → [CONFIRMED] 
+     FAILED   → [CANCELLED] 
 ```
 
 ---
